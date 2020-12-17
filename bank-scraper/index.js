@@ -9,13 +9,11 @@ const options = {headless: false};
   await page.screenshot({path: 'example.png'});
   await page.type('#txtMyClientNumber_field', CREDS.username);
   await page.type('#txtMyPassword_field', CREDS.password);
-  // click and wait for navigation
   await Promise.all([
     page.click('#btnLogon_field'),
     page.waitForNavigation({ waitUntil: 'networkidle0' }),
   ]);
   await page.screenshot({path: 'example2.png'});
-
 
   await browser.close();
 })();
